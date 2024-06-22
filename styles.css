@@ -1,0 +1,98 @@
+:root {
+    --primary-white: #FFFFFF;
+    --primary-black: #333333;
+    --primary-blue: #9FCAE5;
+    --overlay-background: #E2EFF7;
+}
+
+html {
+    font-family: Rubik;
+    color: var(--primary-black);
+    background-color: var(--primary-white);
+
+}
+body {
+    font-size: calc(10px + 0.33vw);
+    -webkit-font-smoothing: antialiased;
+    padding: 5vh 10vw;
+    color: #121314;
+}
+h1, h2 {
+    font-weight: 500;
+}
+h1 {
+    font-size: 2.5em;
+}
+h2 {
+    font-size: 4.5em;
+    margin-bottom: 0;
+}
+
+.overlay {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    background-color: var(--overlay-background);
+    z-index: -2;
+}
+
+@keyframes expandIn {
+    to {
+        right: 0ch;
+    }
+}
+@keyframes collapseOut {
+    to {
+        right: calc(100% - 0.9ch);
+    }
+}
+.transition-underline {
+    position: relative;
+    white-space: nowrap;
+}
+.transition-underline:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0%;
+    left: 0ch;
+    right: calc(100% - 0.9ch);
+    bottom: 0%;
+    /* animation: collapseOut 200ms ease-in-out ; */
+    background-color: var(--primary-blue);
+}
+
+.transition-underline:hover::before  {
+    animation: expandIn 3s ease-in-out;
+}
+p {
+    font-size: 1.6em;
+    font-weight: 300;
+    line-height: 1.4;
+    max-width: 28em;
+}
+
+@supports(animation-timeline: scroll()) {
+    html {
+        scroll-timeline-name: --root-scroll;
+    }
+    @keyframes expandOverlay {
+        from {
+            bottom: 100%;
+        }
+        to {
+            bottom: 0%;
+        }
+    }
+    .transition-underline::before {
+        animation: expandIn;
+        animation-timeline: --root-scroll;
+        animation-range: 0% 100%;
+    }
+    .overlay {
+        animation: expandOverlay;
+        animation-timeline: --root-scroll;
+        animation-range: 0% 100%;
+    }
+} 
