@@ -1,21 +1,22 @@
 :root {
     --primary-white: #FFFFFF;
-    --primary-black: #333333;
+    --primary-black: #121314;
     --primary-blue: #9FCAE5;
     --overlay-background: #E2EFF7;
 }
-
+.primary-black {
+    color: var(--primary-black);
+}
 html {
     font-family: Rubik;
     color: var(--primary-black);
     background-color: var(--primary-white);
-
 }
 body {
     font-size: calc(10px + 0.33vw);
     -webkit-font-smoothing: antialiased;
-    padding: 5vh 10vw;
-    color: #121314;
+    overflow-x: hidden;
+    height: 200vh;
 }
 h1, h2 {
     font-weight: 500;
@@ -28,25 +29,51 @@ h2 {
     margin-bottom: 0;
 }
 
+
+.first-page {
+    padding: 5vh 10vw;
+    position: relative;
+    display: flex;
+}
+.socials {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-top: auto;
+    margin-left: auto;
+    row-gap: 16px;
+}
+.socials-links {
+    position: relative;
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    text-decoration: none;
+}
+a.socials-links:hover {
+    text-decoration: underline;
+}
+.first-page p {
+    opacity: 1;
+}
+.first-page .icon {
+    --size: 32px;
+    display: inline-block;
+    height: var(--size);
+    width: var(--size);
+}
+
 .overlay {
     position: absolute;
     left: 0%;
     right: 0%;
     top: 0%;
+    bottom: 98%;
     background-color: var(--overlay-background);
     z-index: -2;
 }
 
-@keyframes expandIn {
-    to {
-        right: 0ch;
-    }
-}
-@keyframes collapseOut {
-    to {
-        right: calc(100% - 0.9ch);
-    }
-}
+
 .transition-underline {
     position: relative;
     white-space: nowrap;
@@ -57,14 +84,15 @@ h2 {
     z-index: -1;
     top: 0%;
     left: 0ch;
-    right: calc(100% - 0.9ch);
+    right: 100%;
+    /* right: calc(100% - 0.9ch); */
     bottom: 0%;
     /* animation: collapseOut 200ms ease-in-out ; */
     background-color: var(--primary-blue);
 }
 
 .transition-underline:hover::before  {
-    animation: expandIn 3s ease-in-out;
+    /* animation: expandIn 3s ease-in-out; */
 }
 p {
     font-size: 1.6em;
@@ -72,27 +100,113 @@ p {
     line-height: 1.4;
     max-width: 28em;
 }
-
+.second-page {
+    display: flex;
+    column-gap: 16px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* margin-block: 64px; */
+}
+.second-page .box {
+    --size: 256px;
+    height: var(--size);
+    width: var(--size);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border-radius: 1px solid red;
+    border-radius: 8px;
+    align-items: flex-start;
+    padding-top: 24px;
+    padding-bottom: 16px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    font-size: 2.5em;
+    align-items: center;
+}
+.second-page .icon {
+    display: inline-block;
+    height: 50%;
+    width: 50%;
+    margin-bottom: auto;
+}
 @supports(animation-timeline: scroll()) {
-    html {
-        scroll-timeline-name: --root-scroll;
+    /* Keyframs */
+    @keyframes fadeToTop {
+        to {
+            opacity: 0.1;
+        }
+    }
+    @keyframes scaleToTopAndfadeToTop {
+        to {
+            scale: 1.5;
+            opacity: 0.1;
+        }
+    }
+    @keyframes fadeToRight {
+        from {
+            opacity: 1;
+            right: 0%;
+        }
+        to {
+            opacity: 0;
+            right: -100%;
+        }
+    }
+
+    @keyframes expandIn {
+        to {
+            right: 0ch;
+        }
+    }
+    @keyframes collapseOut {
+        to {
+            right: calc(100% - 0.9ch);
+        }
     }
     @keyframes expandOverlay {
-        from {
-            bottom: 100%;
-        }
         to {
             bottom: 0%;
         }
     }
+    html {
+        scroll-timeline-name: --root-scroll;
+    }
     .transition-underline::before {
-        animation: expandIn;
+        animation: expandIn both;
         animation-timeline: --root-scroll;
-        animation-range: 0% 100%;
+        animation-range: 0% 20%;
     }
     .overlay {
-        animation: expandOverlay;
+        animation: expandOverlay both;
+        animation-timeline: --root-scroll;
+        animation-range: 0% 70%;
+    }
+    .first-page p {
+        animation: fadeToTop;
         animation-timeline: --root-scroll;
         animation-range: 0% 100%;
     }
+    h1, h2 {
+        animation: fadeToTop both;
+        animation-timeline: --root-scroll;
+        animation-range: 0% 50%;
+    }
+    .socials-links:nth-child(1) {
+        animation: fadeToRight both;
+        animation-timeline: --root-scroll;
+        animation-range: 15% 100%;
+    }
+    .socials-links:nth-child(2) {
+        animation: fadeToRight both;
+        animation-timeline: --root-scroll;
+        animation-range: 20% 100%;
+    }
+    .socials-links:nth-child(3) {
+        animation: fadeToRight both;
+        animation-timeline: --root-scroll;
+        animation-range: 25% 100%;
+    }
 } 
+
