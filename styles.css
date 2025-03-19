@@ -1,212 +1,135 @@
-:root {
-    --primary-white: #FFFFFF;
-    --primary-black: #121314;
-    --primary-blue: #9FCAE5;
-    --overlay-background: #E2EFF7;
-}
-.primary-black {
-    color: var(--primary-black);
-}
 html {
-    font-family: Rubik;
-    color: var(--primary-black);
-    background-color: var(--primary-white);
+  font-family: Rubik;
+  color: var(--primary-black);
+  background-color: var(--primary-white);
 }
 body {
-    font-size: calc(10px + 0.33vw);
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-    height: 200vh;
+  font-size: calc(10px + 0.33vw);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
-h1, h2 {
-    font-weight: 500;
-}
-h1 {
-    font-size: 2.5em;
-}
-h2 {
-    font-size: 4.5em;
-    margin-bottom: 0;
+.h1,
+.h2 {
+  font-weight: 500;
 }
 
-
+.page-title {
+  font-size: 4.5em;
+}
+.first-page,
+.work-experience,
+.contact-section {
+  padding: 5vh 10vw;
+}
 .first-page {
-    padding: 5vh 10vw;
-    position: relative;
-    display: flex;
+  position: relative;
+  display: flex;
+  .first-page__description {
+    font-size: 1.5rem;
+  }
 }
+
 .socials {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    margin-top: auto;
-    margin-left: auto;
-    row-gap: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-top: auto;
+  margin-left: auto;
+  row-gap: 16px;
 }
 .socials-links {
-    position: relative;
-    display: flex;
-    align-items: center;
-    column-gap: 8px;
-    text-decoration: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  text-decoration: none;
 }
 a.socials-links:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
-.first-page p {
-    opacity: 1;
+.first-page__description {
+  opacity: 1;
 }
 .first-page .icon {
-    --size: 32px;
-    display: inline-block;
-    height: var(--size);
-    width: var(--size);
+  --size: 32px;
+  display: inline-block;
+  height: var(--size);
+  width: var(--size);
 }
 
 .overlay {
-    position: absolute;
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 98%;
-    background-color: var(--overlay-background);
-    z-index: -2;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 98%;
+  background-color: var(--overlay-background);
+  z-index: -2;
 }
-
 
 .transition-underline {
-    position: relative;
-    white-space: nowrap;
+  position: relative;
+  white-space: nowrap;
 }
 .transition-underline:before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    top: 0%;
-    left: 0ch;
-    right: 100%;
-    /* right: calc(100% - 0.9ch); */
-    bottom: 0%;
-    /* animation: collapseOut 200ms ease-in-out ; */
-    background-color: var(--primary-blue);
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0%;
+  left: 0ch;
+  right: 100%;
+  /* right: calc(100% - 0.9ch); */
+  bottom: 0%;
+  /* animation: collapseOut 200ms ease-in-out ; */
+  background-color: var(--primary-blue);
 }
 
-.transition-underline:hover::before  {
-    /* animation: expandIn 3s ease-in-out; */
+.transition-underline:hover::before {
+  /* animation: expandIn 3s ease-in-out; */
 }
-p {
-    font-size: 1.6em;
-    font-weight: 300;
-    line-height: 1.4;
-    max-width: 28em;
-}
-.second-page {
-    display: flex;
-    column-gap: 16px;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    /* margin-block: 64px; */
-}
-.second-page .box {
-    --size: 256px;
-    height: var(--size);
-    width: var(--size);
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    border-radius: 1px solid red;
-    border-radius: 8px;
-    align-items: flex-start;
-    padding-top: 24px;
-    padding-bottom: 16px;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    row-gap: 16px;
-    font-size: 2.5em;
-    align-items: center;
-}
-.second-page .icon {
-    display: inline-block;
-    height: 50%;
-    width: 50%;
-    margin-bottom: auto;
-}
-@supports(animation-timeline: scroll()) {
-    /* Keyframs */
-    @keyframes fadeToTop {
-        to {
-            opacity: 0.1;
-        }
+.work-experience {
+  .h2 {
+    &.work-experience__section-name {
+      font-size: 3.5rem;
+      line-height: 1.2;
     }
-    @keyframes scaleToTopAndfadeToTop {
-        to {
-            scale: 1.5;
-            opacity: 0.1;
-        }
+    &.work-experience__item-title {
+      font-size: 2.5rem;
     }
-    @keyframes fadeToRight {
-        from {
-            opacity: 1;
-            right: 0%;
+  }
+  .work-experience__item-company,
+  .work-experience__item-duration,
+  .work-experience__description {
+    font-size: 1.5rem;
+  }
+  .work-experience__project-list__list-item {
+    font-size: 1.3rem;
+    .work-experience__project {
+      &.link {
+        text-decoration: none;
+        color: var(--primary-black);
+        &:hover {
+          text-decoration: underline;
         }
-        to {
-            opacity: 0;
-            right: -100%;
-        }
+      }
     }
+  }
+}
+.work-experience__item-line {
+  margin-right: 24px;
+  margin-bottom: 30px;
+  margin-top: 4px;
+  border: 1px solid var(--primary-blue);
+}
+.work-experience__item {
+  margin-left: 20px;
+}
+.work-experience__item-wrapper {
+  display: flex;
+  align-items: flex-start;
+}
 
-    @keyframes expandIn {
-        to {
-            right: 0ch;
-        }
-    }
-    @keyframes collapseOut {
-        to {
-            right: calc(100% - 0.9ch);
-        }
-    }
-    @keyframes expandOverlay {
-        to {
-            bottom: 0%;
-        }
-    }
-    html {
-        scroll-timeline-name: --root-scroll;
-    }
-    .transition-underline::before {
-        animation: expandIn both;
-        animation-timeline: --root-scroll;
-        animation-range: 0% 20%;
-    }
-    .overlay {
-        animation: expandOverlay both;
-        animation-timeline: --root-scroll;
-        animation-range: 0% 70%;
-    }
-    .first-page p {
-        animation: fadeToTop;
-        animation-timeline: --root-scroll;
-        animation-range: 0% 100%;
-    }
-    h1, h2 {
-        animation: fadeToTop both;
-        animation-timeline: --root-scroll;
-        animation-range: 0% 50%;
-    }
-    .socials-links:nth-child(1) {
-        animation: fadeToRight both;
-        animation-timeline: --root-scroll;
-        animation-range: 15% 100%;
-    }
-    .socials-links:nth-child(2) {
-        animation: fadeToRight both;
-        animation-timeline: --root-scroll;
-        animation-range: 20% 100%;
-    }
-    .socials-links:nth-child(3) {
-        animation: fadeToRight both;
-        animation-timeline: --root-scroll;
-        animation-range: 25% 100%;
-    }
-} 
-
+.work-experience__projects-list {
+  row-gap: 8px;
+  margin-top: 4px;
+}

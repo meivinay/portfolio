@@ -1,0 +1,96 @@
+@supports (animation-timeline: scroll()) {
+  /* Keyframs */
+  @keyframes fadeToTop {
+    to {
+      opacity: 0.1;
+    }
+  }
+  @keyframes scaleToTopAndfadeToTop {
+    to {
+      scale: 1.5;
+      opacity: 0.1;
+    }
+  }
+  @keyframes fadeToRight {
+    from {
+      opacity: 1;
+      right: 0%;
+    }
+    to {
+      opacity: 0;
+      right: -100%;
+    }
+  }
+
+  @keyframes expandIn {
+    to {
+      right: 0ch;
+    }
+  }
+  @keyframes collapseOut {
+    to {
+      right: calc(100% - 0.9ch);
+    }
+  }
+  @keyframes expandOverlay {
+    to {
+      bottom: 0%;
+    }
+  }
+  @keyframes experineceLine {
+    from {
+      top: 2.5%;
+      bottom: 84%;
+    }
+    to {
+      top: 0%;
+      bottom: 0%;
+    }
+  }
+  html {
+    scroll-timeline-name: --root-scroll;
+  }
+  .transition-underline::before {
+    animation: expandIn both;
+    animation-timeline: --root-scroll;
+    animation-range: 0% 20%;
+  }
+  .overlay {
+    animation: expandOverlay both;
+    animation-timeline: --root-scroll;
+    animation-range: 0% 70%;
+  }
+  .first-page {
+    .first-page__description {
+      animation: fadeToTop;
+      animation-timeline: --root-scroll;
+      animation-range: 0% 100%;
+    }
+    .h1,
+    .h2 {
+      animation: fadeToTop both;
+      animation-timeline: --root-scroll;
+      animation-range: 0% 50%;
+    }
+  }
+  .socials-links:nth-child(1) {
+    animation: fadeToRight both;
+    animation-timeline: --root-scroll;
+    animation-range: 15% 100%;
+  }
+  .socials-links:nth-child(2) {
+    animation: fadeToRight both;
+    animation-timeline: --root-scroll;
+    animation-range: 20% 100%;
+  }
+  .socials-links:nth-child(3) {
+    animation: fadeToRight both;
+    animation-timeline: --root-scroll;
+    animation-range: 25% 100%;
+  }
+  .work-experience__item-line {
+    animation: experineceLine both;
+    animation-timeline: --root-scroll;
+    animation-range: 30% 100%;
+  }
+}

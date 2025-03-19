@@ -1,0 +1,25 @@
+.flex {
+  display: flex;
+}
+.self-start {
+  align-self: flex-start;
+}
+.flex-column {
+  flex-direction: column;
+}
+.items-center {
+  align-items: center;
+}
+.ml-auto {
+  margin-left: auto;
+}
+.primary-black {
+  color: var(--primary-black);
+}
+
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
