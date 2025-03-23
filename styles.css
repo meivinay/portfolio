@@ -17,10 +17,20 @@ body {
   font-size: 4.5em;
 }
 .first-page,
-.work-experience,
-.contact-section {
-  padding: 5vh 10vw;
+.work-experience {
+  padding-inline: 10vw;
 }
+
+.first-page {
+  /* margin-bottom: var(--about-margin-bottom); */
+}
+.first-page__item {
+  padding-bottom: 5vh;
+}
+.work-experience {
+  /* margin-top: var(--about-margin-bottom); */
+}
+
 .first-page {
   position: relative;
   display: flex;
@@ -50,12 +60,6 @@ a.socials-links:hover {
 .first-page__description {
   opacity: 1;
 }
-.first-page .icon {
-  --size: 32px;
-  display: inline-block;
-  height: var(--size);
-  width: var(--size);
-}
 
 .overlay {
   position: absolute;
@@ -81,7 +85,7 @@ a.socials-links:hover {
   /* right: calc(100% - 0.9ch); */
   bottom: 0%;
   /* animation: collapseOut 200ms ease-in-out ; */
-  background-color: var(--primary-blue);
+  background-color: var(--highlight-color);
 }
 
 .transition-underline:hover::before {
@@ -115,11 +119,12 @@ a.socials-links:hover {
     }
   }
 }
+
 .work-experience__item-line {
   margin-right: 24px;
   margin-bottom: 30px;
   margin-top: 4px;
-  border: 1px solid var(--primary-blue);
+  border: var(--experience-line-width) solid var(--experience-line-color);
 }
 .work-experience__item {
   margin-left: 20px;
@@ -132,4 +137,44 @@ a.socials-links:hover {
 .work-experience__projects-list {
   row-gap: 8px;
   margin-top: 4px;
+}
+.header {
+  padding-block: 16px;
+  padding-inline: 12px;
+  background-color: var(--overlay-background);
+  gap: 8px;
+}
+.header .icon {
+  --size: 32px;
+  display: inline-block;
+  height: var(--size);
+  width: var(--size);
+}
+.first-page__experience-line {
+  border: var(--experience-line-width) solid var(--experience-line-color);
+}
+.box__curve {
+  /* height: var(--curve-size);
+  width: var(--curve-size);
+  background-color: var(--overlay-background); */
+}
+.first-page__curve {
+  height: var(--curve-size);
+  width: var(--curve-size);
+  border-bottom-right-radius: var(--super-large-value);
+
+  border-right: calc(var(--experience-line-width) * 2) solid
+    var(--experience-line-color);
+  border-bottom: calc(var(--experience-line-width) * 2) solid
+    var(--experience-line-color);
+  /* bottom: calc(0% - var(--about-margin-bottom)); */
+  /* box-shadow: 14px 10px 0px 17px var(--overlay-background); */
+  z-index: 1;
+}
+
+.first-page__bottom-line {
+  border: var(--experience-line-width) solid var(--experience-line-color);
+  /* bottom: calc(0px - var(--about-margin-bottom)); */
+  clip-path: inset(0px 0px calc(0px + var(--super-large-value)) 0px);
+  right: 4%;
 }

@@ -2,5 +2,12 @@
   --primary-white: #ffffff;
   --primary-black: #121314;
   --primary-blue: #9fcae5;
-  --overlay-background: #e2eff7;
+  --overlay-background: #fdd443;
+  --primary-purple: #9f7feb;
+  --experience-line-color: var(--primary-purple);
+  --experience-line-width: 2px;
+  --highlight-color: var(--primary-purple);
+  --super-large-value: 10000px;
+  --curve-size: 50px;
+  --about-margin-bottom: 16px;
 }

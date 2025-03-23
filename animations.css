@@ -6,9 +6,15 @@
     }
   }
   @keyframes scaleToTopAndfadeToTop {
+    from {
+      scale: 1;
+      perspective: 0px;
+      opacity: 1;
+    }
     to {
       scale: 1.5;
       opacity: 0.1;
+      perspective: 800px;
     }
   }
   @keyframes fadeToRight {
@@ -47,6 +53,37 @@
       bottom: 0%;
     }
   }
+  @keyframes experineceLineFirstPage {
+    from {
+      top: 0%;
+      bottom: 84%;
+    }
+    to {
+      top: 0%;
+      bottom: 8%;
+    }
+  }
+  @keyframes bottomLine {
+    0% {
+      left: 96%;
+    }
+    1% {
+      clip-path: inset(0px 0px 0px 0px);
+    }
+    100% {
+      left: 0%;
+      clip-path: inset(0px 0px 0px 0px);
+    }
+  }
+  @keyframes curveAnimate {
+    0% {
+      clip-path: inset(0px 0px var(--curve-size) 0px);
+    }
+
+    100% {
+      clip-path: inset(0px 0px 0px 0px);
+    }
+  }
   html {
     scroll-timeline-name: --root-scroll;
   }
@@ -58,19 +95,35 @@
   .overlay {
     animation: expandOverlay both;
     animation-timeline: --root-scroll;
-    animation-range: 0% 70%;
+    animation-range: 0% 20%;
   }
   .first-page {
     .first-page__description {
-      animation: fadeToTop;
-      animation-timeline: --root-scroll;
-      animation-range: 0% 100%;
+      /* animation: scaleToTopAndfadeToTop both; */
+      /* animation-timeline: --root-scroll; */
+      /* animation-range: 0% 100%; */
     }
+
     .h1,
     .h2 {
-      animation: fadeToTop both;
+      /* animation: scaleToTopAndfadeToTop both; */
+      /* animation-timeline: --root-scroll; */
+      /* animation-range: 0% 50%; */
+    }
+    .first-page__experience-line {
+      animation: experineceLineFirstPage both;
       animation-timeline: --root-scroll;
-      animation-range: 0% 50%;
+      animation-range: 0% 15%;
+    }
+    .first-page__curve {
+      animation: curveAnimate both;
+      animation-timeline: --root-scroll;
+      animation-range: 12% 31%;
+    }
+    .first-page__bottom-line {
+      animation: bottomLine both;
+      animation-timeline: --root-scroll;
+      animation-range: 27% 37%;
     }
   }
   .socials-links:nth-child(1) {
