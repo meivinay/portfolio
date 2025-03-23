@@ -49,7 +49,7 @@
       bottom: 84%;
     }
     to {
-      top: 0%;
+      top: 2.5%;
       bottom: 0%;
     }
   }
@@ -60,7 +60,7 @@
     }
     to {
       top: 0%;
-      bottom: 8%;
+      bottom: 12%;
     }
   }
   @keyframes bottomLine {
@@ -71,13 +71,22 @@
       clip-path: inset(0px 0px 0px 0px);
     }
     100% {
-      left: 0%;
+      left: 4px;
       clip-path: inset(0px 0px 0px 0px);
     }
   }
-  @keyframes curveAnimate {
+  @keyframes curveAnimateBottomRight {
     0% {
       clip-path: inset(0px 0px var(--curve-size) 0px);
+    }
+
+    100% {
+      clip-path: inset(0px 0px 0px 0px);
+    }
+  }
+  @keyframes curveAnimateTopLeft {
+    0% {
+      clip-path: inset(var(--curve-size) 0px 0px 0px);
     }
 
     100% {
@@ -90,7 +99,7 @@
   .transition-underline::before {
     animation: expandIn both;
     animation-timeline: --root-scroll;
-    animation-range: 0% 20%;
+    animation-range: 10% 20%;
   }
   .overlay {
     animation: expandOverlay both;
@@ -98,28 +107,17 @@
     animation-range: 0% 20%;
   }
   .first-page {
-    .first-page__description {
-      /* animation: scaleToTopAndfadeToTop both; */
-      /* animation-timeline: --root-scroll; */
-      /* animation-range: 0% 100%; */
-    }
-
-    .h1,
-    .h2 {
-      /* animation: scaleToTopAndfadeToTop both; */
-      /* animation-timeline: --root-scroll; */
-      /* animation-range: 0% 50%; */
-    }
     .first-page__experience-line {
       animation: experineceLineFirstPage both;
       animation-timeline: --root-scroll;
       animation-range: 0% 15%;
     }
-    .first-page__curve {
-      animation: curveAnimate both;
+    .curve__bottom-right {
+      animation: curveAnimateBottomRight both;
       animation-timeline: --root-scroll;
       animation-range: 12% 31%;
     }
+
     .first-page__bottom-line {
       animation: bottomLine both;
       animation-timeline: --root-scroll;
@@ -145,5 +143,10 @@
     animation: experineceLine both;
     animation-timeline: --root-scroll;
     animation-range: 30% 100%;
+  }
+  .curve__top-left {
+    animation: curveAnimateTopLeft both;
+    animation-timeline: --root-scroll;
+    animation-range: 30% 40%;
   }
 }

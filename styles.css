@@ -16,17 +16,36 @@ body {
 .page-title {
   font-size: 4.5em;
 }
-.first-page,
-.work-experience {
-  padding-inline: 10vw;
+.first-page {
+  padding-left: 10vw;
+  padding-right: 9vw;
+  .first-page__item {
+    padding-right: 1vw;
+  }
 }
 
+.work-experience {
+  padding-left: 9vw;
+  padding-right: 10vw;
+  .work-experience__item {
+    padding-left: 1vw;
+  }
+}
+.first-page__item {
+  margin-top: 16px;
+}
+.first-page__item,
+.work-experience__item {
+  padding-bottom: 5vh;
+}
+
+.work-experience__item {
+  /* padding-left: 1vw; */
+}
 .first-page {
   /* margin-bottom: var(--about-margin-bottom); */
 }
-.first-page__item {
-  padding-bottom: 5vh;
-}
+
 .work-experience {
   /* margin-top: var(--about-margin-bottom); */
 }
@@ -126,9 +145,7 @@ a.socials-links:hover {
   margin-top: 4px;
   border: var(--experience-line-width) solid var(--experience-line-color);
 }
-.work-experience__item {
-  margin-left: 20px;
-}
+
 .work-experience__item-wrapper {
   display: flex;
   align-items: flex-start;
@@ -153,28 +170,33 @@ a.socials-links:hover {
 .first-page__experience-line {
   border: var(--experience-line-width) solid var(--experience-line-color);
 }
-.box__curve {
-  /* height: var(--curve-size);
-  width: var(--curve-size);
-  background-color: var(--overlay-background); */
-}
-.first-page__curve {
+
+.curve__bottom-right {
   height: var(--curve-size);
   width: var(--curve-size);
   border-bottom-right-radius: var(--super-large-value);
-
   border-right: calc(var(--experience-line-width) * 2) solid
     var(--experience-line-color);
   border-bottom: calc(var(--experience-line-width) * 2) solid
     var(--experience-line-color);
-  /* bottom: calc(0% - var(--about-margin-bottom)); */
-  /* box-shadow: 14px 10px 0px 17px var(--overlay-background); */
   z-index: 1;
 }
-
 .first-page__bottom-line {
   border: var(--experience-line-width) solid var(--experience-line-color);
   /* bottom: calc(0px - var(--about-margin-bottom)); */
   clip-path: inset(0px 0px calc(0px + var(--super-large-value)) 0px);
   right: 4%;
+}
+
+.curve__top-left {
+  --curve-size: 24px;
+  height: var(--curve-size);
+  width: var(--curve-size);
+  border-top-left-radius: var(--super-large-value);
+  border-left: calc(var(--experience-line-width) * 2) solid
+    var(--experience-line-color);
+  border-top: calc(var(--experience-line-width) * 2) solid
+    var(--experience-line-color);
+  z-index: 1;
+  top: -4px;
 }
