@@ -200,3 +200,14 @@ a.socials-links:hover {
   z-index: 1;
   top: -4px;
 }
+.contact-section {
+  background-color: var(--primary-yellow);
+  padding-block: 2rem;
+  padding-inline: 1rem;
+}
+.resume {
+  font-size: 2rem;
+}
+.resume__link {
+  color: var(--primary-purple);
+}

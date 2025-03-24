@@ -2,7 +2,8 @@
   --primary-white: #ffffff;
   --primary-black: #121314;
   --primary-blue: #9fcae5;
-  --overlay-background: #fdd443;
+  --primary-yellow: #fdd443;
+  --overlay-background: var(--primary-yellow);
   --primary-purple: #9f7feb;
   --experience-line-color: var(--primary-purple);
   --experience-line-width: 2px;
