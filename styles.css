@@ -185,7 +185,7 @@ a.socials-links:hover {
   border: var(--experience-line-width) solid var(--experience-line-color);
   /* bottom: calc(0px - var(--about-margin-bottom)); */
   clip-path: inset(0px 0px calc(0px + var(--super-large-value)) 0px);
-  right: 4%;
+  right: calc(0% + var(--curve-size));
 }
 
 .curve__top-left {

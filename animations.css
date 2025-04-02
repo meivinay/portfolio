@@ -60,18 +60,18 @@
     }
     to {
       top: 0%;
-      bottom: 12%;
+      bottom: calc(0% + var(--curve-size));
     }
   }
   @keyframes bottomLine {
     0% {
-      left: 96%;
+      left: calc(100% - var(--curve-size));
     }
     1% {
       clip-path: inset(0px 0px 0px 0px);
     }
     100% {
-      left: 4px;
+      left: 8px;
       clip-path: inset(0px 0px 0px 0px);
     }
   }
